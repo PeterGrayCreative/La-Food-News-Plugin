@@ -29,7 +29,7 @@ function news_link_shortcode($atts)
     $output .= sprintf('<div class="meta"><span>%s</span>', get_field('news_outlet'));
     $output .= sprintf('<span>Time Since Posted: %d</span></div></div>', get_post_time('post_date'));
     $output .= 'posttime' . get_post_time('U', 'gmt', get_the_ID()) . 'currenttime' . time();
-    $output .= 'timediff' . round(abs(time() - get_post_time('U', 'gmt', get_the_ID())) /60/60/24);
+    $output .= 'timediff' . round(abs(time() - get_post_time('U', 'gmt', get_the_ID())) /60/60);
     endwhile;
   }
   wp_reset_postdata();

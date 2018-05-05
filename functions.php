@@ -18,8 +18,9 @@ function news_link_shortcode($atts)
   $newsOutlet = get_field('news_outlet');
   $postDate = get_field('post_date');
   $currentTime = time();
+
   $postTime = get_post_time('U', true);
-  $timeDiff = "Time Since Posted:" . $currentTime - $postTime;
+  $timeDiff = $currentTime - $postTime;
   $links = new WP_Query(array('post_type' => 'news_posts'));
 
   if ($links->have_posts()) {
@@ -37,7 +38,7 @@ function news_link_shortcode($atts)
                 </div>
                 <div class="meta">
                     <span>{$newsOutlet}</span>
-                    <span>{$postDate} {$timeDiff}</span>
+                    <span>Time Since Posted: {$postDate} {$postTime}</span>
                 </div>
             </div>';
     endwhile;

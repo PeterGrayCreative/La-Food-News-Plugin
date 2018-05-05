@@ -1,4 +1,13 @@
 <?php
+/*
+  Plugin Name: LA Food News Links
+  Plugin URI: www.petergraycreative.com
+  Description: Displays Syndicated News Links added by Admins
+  Version: 1.0
+  Author: Peter Gray
+  Author URI: http://petergraycreative.com
+ */
+
 function news_link_shortcode($atts)
 {
   $newsLinksLoop;

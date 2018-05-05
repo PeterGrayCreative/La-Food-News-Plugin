@@ -27,11 +27,13 @@ function news_link_shortcode($atts)
     while ($links->have_posts()) : $links->the_post();
     $newsLinksLoop .= '<div class="">';
     if (has_post_thumbnail()) {
-      $newsLinksLoop .= '<div class="news-featured">
+      $newsLinksLoop .= <<<TEXT
+      <div class="news-featured">
                         <a href="{$thePermalink}">{$postThumbnail}</a>
-                    </div>';
-    }
-    $newsLinksLoop .= '<div class="title">
+                    </div>
+                    TEXT;
+            }
+    $newsLinksLoop .= <<<TEXT<div class="title">
                     <h2>
                     {$theTitle}
                     </h2>
@@ -40,7 +42,8 @@ function news_link_shortcode($atts)
                     <span>{$newsOutlet}</span>
                     <span>Time Since Posted: {$postDate} {$postTime}</span>
                 </div>
-            </div>';
+            </div>
+            TEXT;
     endwhile;
   }
   wp_reset_postdata();

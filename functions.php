@@ -28,7 +28,7 @@ function news_link_shortcode($atts)
     if (has_post_thumbnail()) {
       $output .= sprintf('<div class="news-featured"><a href="%s">%s</a></div>', the_permalink(), the_post_thumbnail());
     }
-    $isNewPost = is_new_item(get_post_time('U', 'gmt', get_the_ID())) ? 'new-link' : '';
+    $isNewPost = !is_new_item(get_post_time('U', 'gmt', get_the_ID())) ? 'new-link' : '';
     $output .= sprintf('<div class="title %s"><h2>%s</h2></div>', $isNewPost, get_the_title());
     $output .= sprintf('<div class="meta"><span>%s</span>', get_field('news_outlet'));
     $output .= sprintf('<span>Time Since Posted: %d</span></div></div>', get_post_time('post_date'));

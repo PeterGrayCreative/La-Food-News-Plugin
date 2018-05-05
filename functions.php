@@ -13,7 +13,10 @@ function add_stylesheet() {
 }
 
 add_action( 'wp_enqueue_scripts', 'add_stylesheet' );
-
+function is_new_item($postTime) {
+  $time = round(abs(time() - $postTime) /60/60);
+  return $time < 72;
+}
 function news_link_shortcode($atts)
 {
   $output;
@@ -25,11 +28,12 @@ function news_link_shortcode($atts)
     if (has_post_thumbnail()) {
       $output .= sprintf('<div class="news-featured"><a href="%s">%s</a></div>', the_permalink(), the_post_thumbnail());
     }
-    $output .= sprintf('<div class="title"><h2>%s</h2></div>', get_the_title());
+    $isNewPost = is_new_item(get_post_time('U', 'gmt', get_the_ID())) ? 'new-link' : '';
+    $output .= sprintf('<div class="title %s"><h2>%s</h2></div>', $isNewPost, get_the_title());
     $output .= sprintf('<div class="meta"><span>%s</span>', get_field('news_outlet'));
     $output .= sprintf('<span>Time Since Posted: %d</span></div></div>', get_post_time('post_date'));
-    $output .= 'posttime' . get_post_time('U', 'gmt', get_the_ID()) . 'currenttime' . time();
-    $output .= 'timediff' . round(abs(time() - get_post_time('U', 'gmt', get_the_ID())) /60/60);
+
+
     endwhile;
   }
   wp_reset_postdata();

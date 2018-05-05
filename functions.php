@@ -8,11 +8,17 @@
   Author URI: http://petergraycreative.com
  */
 
+function add_stylesheet() {
+	wp_enqueue_style( 'CSS', plugins_url( '/style.css', __FILE__ ) );
+}
+
+add_action( 'wp_enqueue_scripts', 'add_stylesheet' );
+
 function news_link_shortcode($atts)
 {
   $newsLinksLoop;
   // Set up item variables to make them easier to output inside strings
-  $timeDiff = $currentTime - $postTime;
+  // $timeDiff = $currentTime - $postTime;
   $links = new WP_Query(array('post_type' => 'news_posts'));
 
   if ($links->have_posts()) {
@@ -38,7 +44,6 @@ function news_link_shortcode($atts)
     $newsLinksLoop .= get_field('news_outlet');
     $newsLinksLoop .= '</span>
                     <span>Time Since Posted: ';
-    $newsLinksLoop .= the_field('post_date');
     $newsLinksLoop .= the_field('post_date');
     $newsLinksLoop .= '</span>
                 </div>

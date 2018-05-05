@@ -3,9 +3,9 @@
   box-shadow: 2px 2px rgba(0,0,0);
   padding:15px;
 }
-.panel-news_article h2 {
+.panel-news_article title {
   font-weight:bold;
 }
-.panel-news_article span {
+.panel-news_article .meta {
   color:#C0C0C0;
 }

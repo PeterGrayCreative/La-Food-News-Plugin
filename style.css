@@ -8,6 +8,10 @@
 
 .panel-news_article title {
     font-weight: bold;
+    position:relative;
+}
+.panel-news_article span {
+  margin-right:15px;
 }
 
 .panel-news_article .meta {
@@ -22,7 +26,7 @@
   position: absolute;
   z-index: 3;
   top: 0;
-  right: -15px;
+  margin-left: 10px;
   padding: 0 4px;
   color: #fff;
   letter-spacing: 1px;

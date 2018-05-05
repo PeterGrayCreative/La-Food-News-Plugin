@@ -24,7 +24,7 @@ function time_since_post($postTime)
   $time = round(abs(time() - $postTime));
   if ($time < 60) $formattedTime = round($time / 60) . ' s';
   elseif ($time / 60 < 60) $formattedTime = round($time / 60) . ' min';
-  elseif ($time / 60 / 60 < 24) $formattedTime = round($time / 60 / 60) . ' hr';
+  elseif ($time / 60 / 60 < 24) $formattedTime = round($time / 60 / 60) . round($time / 60 / 60) > 1 ? ' hrs' : ' hr';
   else $formattedTime = round($time / 60 / 60 / 24) . ' days';
   return $formattedTime;
 }

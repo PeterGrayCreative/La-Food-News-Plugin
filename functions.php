@@ -17,7 +17,7 @@ function news_link_shortcode($atts)
 
   if ($links->have_posts()) {
     while ($links->have_posts()) : $links->the_post();
-    $newsLinksLoop .= '<div class="">';
+    $newsLinksLoop .= '<div class="panel-news_article">';
     if (has_post_thumbnail()) {
 
       $newsLinksLoop .= '<div class="news-featured"><a href="';
@@ -47,7 +47,6 @@ function news_link_shortcode($atts)
     endwhile;
   }
   wp_reset_postdata();
-  ob_start();
   return $newsLinksLoop;
 }
 add_shortcode('news-links', 'news_link_shortcode');

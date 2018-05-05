@@ -13,3 +13,24 @@
 .panel-news_article .meta {
     color: #C0C0C0;
 }
+
+.panel-news_article .label.new {
+  background-color: #00a256;
+}
+
+.panel-news_article .label {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: -15px;
+  padding: 0 4px;
+  color: #fff;
+  letter-spacing: 1px;
+  font-size: 8px;
+  border-radius: 2px;
+  height: 12px;
+  line-height: 12px;
+  box-shadow: 0 0 2px rgba(0,0,0,.3);
+  background-color: #00a256;
+  text-transform: uppercase;
+}

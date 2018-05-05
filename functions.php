@@ -28,7 +28,7 @@ function news_link_shortcode($atts)
     $output .= sprintf('<div class="title"><h2>%s</h2></div>', get_the_title());
     $output .= sprintf('<div class="meta"><span>%s</span>', get_field('news_outlet'));
     $output .= sprintf('<span>Time Since Posted: %d</span></div></div>', get_post_time('post_date'));
-    $output .= 'posttime' . get_post_time('post_date');
+    $output .= 'posttime' . get_post_time('U', 'gmt', get_the_ID());
     endwhile;
   }
   wp_reset_postdata();

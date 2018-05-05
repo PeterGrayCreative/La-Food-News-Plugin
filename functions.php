@@ -26,13 +26,8 @@ function news_link_shortcode($atts)
 
       $output .= sprintf('<div class="news-featured"><a href="%s">%s</a></div>', the_permalink(), the_post_thumbnail());
     }
-    $output .=
-      '<div class="title">
-                    <h2>';
-    $output .= get_the_title();
-    $output .= '</h2>
-                </div>
-                <div class="meta">
+    $output .= sprintf('<div class="title"><h2>%s</h2></div>', get_the_title());
+    $output .= '<div class="meta">
                     <span>';
     $output .= get_field('news_outlet');
     $output .= '</span>

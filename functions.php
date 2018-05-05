@@ -24,7 +24,10 @@ function time_since_post($postTime)
   $time = round(abs(time() - $postTime));
   if ($time < 60) $formattedTime = round($time / 60) . ' s';
   elseif ($time / 60 < 60) $formattedTime = round($time / 60) . ' min';
-  elseif ($time / 60 / 60 < 24) $formattedTime = round($time / 60 / 60) . round($time / 60 / 60) > 1 ? ' hrs' : ' hr';
+  elseif ($time / 60 / 60 < 24) {
+    $formattedTime = round($time / 60 / 60);
+    $formattedTime .= (round($time / 60 / 60) > 1 ? ' hrs' : ' hr');
+  }
   else $formattedTime = round($time / 60 / 60 / 24) . ' days';
   return $formattedTime;
 }
@@ -40,7 +43,7 @@ function news_link_shortcode($atts)
       $output .= sprintf('<div class="news-featured"><a href="%s">%s</a></div>', the_permalink(), the_post_thumbnail());
     }
     $isNewPost = is_new_item(get_post_time('U', 'gmt', get_the_ID())) ? ' new-link' : '';
-    $output .= sprintf('<div class="title"><h2>%s</h2><span class="label new">new</span></div>', $isNewPost, get_the_title());
+    $output .= sprintf('<div class="title"><h2>%s</h2>%s</div>', get_the_title(), ($isNewPost ? '<span class="label new">new</span>' : ''));
     $output .= sprintf('<div class="meta"><span>%s</span>', get_field('news_outlet'));
     $output .= sprintf('<span>%s</span></div></div>', time_since_post(get_post_time('U', 'gmt', get_the_ID())));
 

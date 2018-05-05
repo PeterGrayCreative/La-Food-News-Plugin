@@ -23,12 +23,11 @@ function news_link_shortcode($atts)
     while ($links->have_posts()) : $links->the_post();
     $output .= sprintf('<div class="panel-news_article">');
     if (has_post_thumbnail()) {
-
       $output .= sprintf('<div class="news-featured"><a href="%s">%s</a></div>', the_permalink(), the_post_thumbnail());
     }
     $output .= sprintf('<div class="title"><h2>%s</h2></div>', get_the_title());
     $output .= sprintf('<div class="meta"><span>%s</span>', get_field('news_outlet'));
-    $output .= sprintf('<span>Time Since Posted: %s</span></div></div>', the_field('post_date'));
+    $output .= sprintf('<span>Time Since Posted: %d</span></div></div>', get_post_time('post_date'));
     endwhile;
   }
   wp_reset_postdata();

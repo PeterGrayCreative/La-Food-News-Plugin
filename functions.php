@@ -12,14 +12,6 @@ function news_link_shortcode($atts)
 {
   $newsLinksLoop;
   // Set up item variables to make them easier to output inside strings
-  $thePermalink = the_permalink();
-  $postThumbnail = the_post_thumbnail();
-  $theTitle = get_the_title();
-  $newsOutlet = get_field('news_outlet');
-  $postDate = get_field('post_date');
-  $currentTime = time();
-
-  $postTime = get_post_time('U', true);
   $timeDiff = $currentTime - $postTime;
   $links = new WP_Query(array('post_type' => 'news_posts'));
 
@@ -27,6 +19,15 @@ function news_link_shortcode($atts)
     while ($links->have_posts()) : $links->the_post();
     $newsLinksLoop .= '<div class="">';
     if (has_post_thumbnail()) {
+      $thePermalink = the_permalink();
+      $postThumbnail = the_post_thumbnail();
+      $theTitle = get_the_title();
+      $newsOutlet = get_field('news_outlet');
+      $postDate = get_field('post_date');
+      $currentTime = time();
+    
+      $postTime = get_post_time('U', true);
+      
       $newsLinksLoop .= <<<TEXT
       <div class="news-featured">
       <a href="{$thePermalink}">{$postThumbnail}</a>

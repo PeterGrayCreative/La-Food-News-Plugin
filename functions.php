@@ -19,33 +19,31 @@ function news_link_shortcode($atts)
     while ($links->have_posts()) : $links->the_post();
     $newsLinksLoop .= '<div class="">';
     if (has_post_thumbnail()) {
-      $thePermalink = the_permalink();
-      $postThumbnail = the_post_thumbnail();
-      $theTitle = get_the_title();
-      $newsOutlet = get_field('news_outlet');
-      $postDate = get_field('post_date');
-      $currentTime = time();
-    
-      $postTime = get_post_time('U', true);
-      
-      $newsLinksLoop .= <<<TEXT
-      <div class="news-featured">
-      <a href="{$thePermalink}">{$postThumbnail}</a>
-      </div>
-TEXT;
-            }
-    $newsLinksLoop .= <<<TEXT
-    <div class="title">
-                    <h2>
-                    {$theTitle}
-                    </h2>
+
+      $newsLinksLoop .= '<div class="news-featured"><a href="';
+      $newsLinksLoop .= the_permalink();
+      $newsLinksLoop .= '">';
+      $newsLinksLoop .= the_post_thumbnail();
+      $newsLinksLoop .= '</a>
+      </div>';
+    }
+    $newsLinksLoop .=
+      '<div class="title">
+                    <h2>';
+    $newsLinksLoop .= get_the_title();
+    $newsLinksLoop .= '</h2>
                 </div>
                 <div class="meta">
-                    <span>{$newsOutlet}</span>
-                    <span>Time Since Posted: {$postDate} {$postTime}</span>
+                    <span>';
+    $newsLinksLoop .= get_field('news_outlet');
+    $newsLinksLoop .= '</span>
+                    <span>Time Since Posted: ';
+    $newsLinksLoop .= the_field('post_date');
+    $newsLinksLoop .= the_field('post_date');
+    $newsLinksLoop .= '</span>
                 </div>
-            </div>
-TEXT;
+            </div>';
+
     endwhile;
   }
   wp_reset_postdata();

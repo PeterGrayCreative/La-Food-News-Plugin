@@ -27,16 +27,8 @@ function news_link_shortcode($atts)
       $output .= sprintf('<div class="news-featured"><a href="%s">%s</a></div>', the_permalink(), the_post_thumbnail());
     }
     $output .= sprintf('<div class="title"><h2>%s</h2></div>', get_the_title());
-    $output .= '<div class="meta">
-                    <span>';
-    $output .= get_field('news_outlet');
-    $output .= '</span>
-                    <span>Time Since Posted: ';
-    $output .= the_field('post_date');
-    $output .= '</span>
-                </div>
-            </div>';
-
+    $output .= sprintf('<div class="meta"><span>%s</span>', get_field('news_outlet'));
+    $output .= sprintf('<span>Time Since Posted: %s</span></div></div>', the_field('post_date'));
     endwhile;
   }
   wp_reset_postdata();

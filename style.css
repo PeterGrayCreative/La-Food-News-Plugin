@@ -27,8 +27,8 @@
 .panel-news_article .label {
   position: absolute;
   z-index: 3;
-  top: 0;
-  margin-left: 10px;
+  top: -10px;
+  left: 0px;
   padding: 0 4px;
   color: #fff;
   letter-spacing: 1px;

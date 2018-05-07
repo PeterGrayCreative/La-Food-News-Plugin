@@ -9,6 +9,8 @@ const excerpt = document.querySelectorAll('.panel-news_article');
         item.querySelector('.summary').classList.toggle('display-none');
         if (item.querySelector('.summary').classList.contains('display-none')) {
           setTimeout(function() {item.querySelector('.summary').style = 'display:none';}, 500);
+        } else {
+          setTimeout(function() {item.querySelector('.summary').style = 'display:block';}, 500);
         }
       }
     },

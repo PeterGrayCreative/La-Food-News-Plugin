@@ -29,6 +29,9 @@
 .summary {
   transition: all .5s ease-in-out;
 }
+.summary p {
+  margin-bottom:10px;
+}
 .display-block {
   opacity: 1;
   max-height: 999px;

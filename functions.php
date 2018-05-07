@@ -11,9 +11,9 @@
 function init_plugin_files()
 {
   wp_register_style('CSS', plugins_url('/style.css', __FILE__));
-  wp_register_script( 'index', plugins_url('/index.js', __FILE__) , '', '', true );
-  wp_enqueue_style( 'CSS' );
-  wp_enqueue_script( 'index');
+  wp_register_script('index', plugins_url('/index.js', __FILE__), '', '', true);
+  wp_enqueue_style('CSS');
+  wp_enqueue_script('index');
 }
 
 add_action('wp_enqueue_scripts', 'init_plugin_files');
@@ -31,8 +31,7 @@ function time_since_post($postTime)
   elseif ($time / 60 / 60 < 24) {
     $formattedTime = round($time / 60 / 60);
     $formattedTime .= (round($time / 60 / 60) > 1 ? ' hrs' : ' hr');
-  }
-  else $formattedTime = round($time / 60 / 60 / 24) . ' days';
+  } else $formattedTime = round($time / 60 / 60 / 24) . ' days';
   return $formattedTime;
 }
 function news_link_shortcode($atts)
@@ -40,8 +39,7 @@ function news_link_shortcode($atts)
   // $a = shortcode_atts( $atts );
 
   $output;
-  $output = sprintf(esc_attr($atts['category']));
-  $links = new WP_Query(array('post_type' => 'news_posts', 'category' => esc_attr($atts['category'])));
+  $links = new WP_Query(array('post_type' => 'news_posts', array( 'category' => esc_attr($atts['category']))));
 
   if ($links->have_posts()) {
     while ($links->have_posts()) : $links->the_post();

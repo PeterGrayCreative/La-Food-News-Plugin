@@ -37,8 +37,11 @@ function time_since_post($postTime)
 }
 function news_link_shortcode($atts)
 {
+  $a = shortcode_atts( $atts );
+  $newsCat = esc_attr($a['category']);
+  
   $output;
-  $links = new WP_Query(array('post_type' => 'news_posts'));
+  $links = new WP_Query(array('post_type' => 'news_posts', 'category_name' => $newsCat));
 
   if ($links->have_posts()) {
     while ($links->have_posts()) : $links->the_post();
@@ -52,7 +55,7 @@ function news_link_shortcode($atts)
     $output .= sprintf('<div class="title"><a href="%s"><h2>%s<span class="label new">%s</span></h2></a></div>', $article_link, get_the_title(), ($isNewPost ? 'new' : ''));
     $output .= sprintf('<a href="" class="summary-link btn">Read Summary</a><div class="summary display-none"><p>%s</p>%s</div>', strip_tags(get_the_excerpt()), $btn);
     $output .= sprintf('<div class="meta"><span>%s</span>', get_field('news_outlet'));
-    $output .= sprintf('<span>%s</span></div></div>', time_since_post(get_post_time('U', 'gmt', get_the_ID())));
+    $output .= sprintf('<span>&#183</span><span>%s</span></div></div>', time_since_post(get_post_time('U', 'gmt', get_the_ID())));
     endwhile;
   }
   wp_reset_postdata();

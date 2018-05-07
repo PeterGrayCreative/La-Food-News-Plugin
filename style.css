@@ -31,13 +31,15 @@
 }
 .display-block {
   display:block;
-  height:unset;
-  opacity:1;
+  opacity: 1;
+  max-height: 999px;
+  transition: opacity .5s, max-height .5s;
 }
 .display-none {
   display:none;
-  height:0;
   opacity: 0;
+  max-height: 0px;
+  transition: opacity .5s, max-height .5s;
 }
 .panel-news_article .label.new {
   background-color: #00a256;

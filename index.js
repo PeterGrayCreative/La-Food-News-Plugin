@@ -6,11 +6,13 @@ const excerpt = document.querySelectorAll('.panel-news_article');
     function(event) {
       if (event.target.classList.contains('summary-link')) {
         event.preventDefault();
-        item.querySelector('.summary').classList.toggle('display-none');
-        if (item.querySelector('.summary').classList.contains('display-none')) {
-          setTimeout(function() {item.querySelector('.summary').style = 'display:none';}, 500);
+
+        const summary = item.querySelector('.summary');
+        summary.classList.toggle('display-none');
+        if (summary.classList.contains('display-none')) {
+          setTimeout(function() {summary.style = 'display:none';}, 500);
         } else {
-          item.querySelector('.summary').style = 'display:block';
+          summary.style = 'display:block';
         }
       }
     },

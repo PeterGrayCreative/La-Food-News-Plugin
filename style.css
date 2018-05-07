@@ -38,6 +38,7 @@
   opacity: 0;
   max-height: 0px;
   transition: opacity .5s, max-height .5s;
+  margin:0;
 }
 .panel-news_article .label.new {
   background-color: #00a256;

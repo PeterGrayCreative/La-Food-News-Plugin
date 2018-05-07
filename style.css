@@ -19,11 +19,25 @@
 .panel-news_article .meta {
     color: rgb(118, 118, 118);
 }
+.summary-link {
+  color:#00a256;
+  text-decoration: underline;
+}
+.summary-link:hover {
+  color:black;
+}
+.summary {
+  transition: all .5s ease-in-out;
+}
 .display-block {
   display:block;
+  height:unset;
+  opacity:1;
 }
 .display-none {
   display:none;
+  height:0;
+  opacity: 0;
 }
 .panel-news_article .label.new {
   background-color: #00a256;

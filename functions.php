@@ -47,7 +47,7 @@ function news_link_shortcode($atts)
       $output .= sprintf('<div class="news-featured"><a href="%s">%s</a></div>', the_permalink(), the_post_thumbnail());
     }
     $article_link = get_field('article_link');
-    $btn = do_shortcode('[boombox_button url="' . $article_link . '" tag_type="a" size="small" type="secondary"]' . 'Read Full Article' . '[/boombox_button]');
+    $btn = do_shortcode('[boombox_button url="' . $article_link . '" tag_type="a" size="small" type="primary"]' . 'Read Full Article' . '[/boombox_button]');
     $isNewPost = is_new_item(get_post_time('U', 'gmt', get_the_ID())) ? ' new-link' : '';
     $output .= sprintf('<div class="title"><a href="%s"><h2>%s<span class="label new">%s</span></h2></a></div>', $article_link, get_the_title(), ($isNewPost ? 'new' : ''));
     $output .= sprintf('<a href="" class="summary-link btn">Read Summary</a><p class="summary display-none">%s %s</p>', strip_tags(get_the_excerpt()), $btn);

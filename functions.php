@@ -46,7 +46,7 @@ function news_link_shortcode($atts)
     while ($links->have_posts()) : $links->the_post();
     $output .= sprintf('<div class="panel-news_article">');
     if (has_post_thumbnail()) {
-      $output .= sprintf('<div class="news-featured"><a href="%s">%s</a></div>', the_permalink(), the_post_thumbnail());
+      $output .= sprintf('<div class="news-featured"><a href="%s">%s</a></div>', the_post_thumbnail());
     }
     $article_link = get_field('article_link');
     $btn = do_shortcode('[boombox_button url="' . $article_link . '" tag_type="a" size="small" type="primary"]' . 'Read Full Article' . '[/boombox_button]');

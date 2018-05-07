@@ -50,11 +50,12 @@ function news_link_shortcode($atts)
       $output .= sprintf('<div class="news-featured"><a href="%s">%s</a></div>', the_permalink(), the_post_thumbnail());
     }
     $article_link = get_field('article_link');
+    $rootLink = preg_match('/https?:\/\/[a-z]*[A-Z]*\.+.*/', get_field('article_link'));
     $btn = do_shortcode('[boombox_button url="' . $article_link . '" tag_type="a" size="small" type="primary"]' . 'Read Full Article' . '[/boombox_button]');
     $isNewPost = is_new_item(get_post_time('U', 'gmt', get_the_ID())) ? ' new-link' : '';
     $output .= sprintf('<div class="title"><a href="%s"><span class="news-title">%s<span class="label new">%s</span></span></a></div>', $article_link, get_the_title(), ($isNewPost ? 'new' : ''));
     $output .= sprintf('<div><a class="summary-link btn">Read Summary</a></div><div class="summary display-none"><p>%s</p>%s</div>', strip_tags(get_the_excerpt()), $btn);
-    $output .= sprintf('<div class="meta"><span>%s</span>', get_field('news_outlet'));
+    $output .= sprintf('<div class="meta"><a href="%s"><span>%s</span></a>', $rootLink, get_field('news_outlet'));
     $output .= sprintf('<span>&#183</span><span>%s</span></div></div>', time_since_post(get_post_time('U', 'gmt', get_the_ID())));
     endwhile;
   }

@@ -10,6 +10,7 @@ const excerpt = document.querySelectorAll('.panel-news_article');
         if (item.querySelector('.summary').classList.contains('display-none')) {
           setTimeout(function() {item.querySelector('.summary').style = 'display:none';}, 500);
         } else {
+          item.querySelector('.summary').style = '';
           setTimeout(function() {item.querySelector('.summary').style = 'display:block';}, 500);
         }
       }

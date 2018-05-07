@@ -38,6 +38,7 @@
   opacity: 1;
   max-height: 999px;
   transition: opacity .5s, max-height .5s;
+  transition-delay: .25s;
 }
 .summary p {
   margin-bottom:10px;
@@ -46,7 +47,6 @@
   opacity: 1;
   max-height: 999px;
   transition: opacity .5s, max-height .5s;
-  transition-delay: .25s;
 }
 .display-none {
   display:none;

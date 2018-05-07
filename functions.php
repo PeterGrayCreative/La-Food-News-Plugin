@@ -38,7 +38,7 @@ function news_link_shortcode($atts)
 {
   // $a = shortcode_atts( $atts );
 
-  $output;
+
 
   $args = array(
     'post_type' => 'news_posts',
@@ -50,9 +50,9 @@ function news_link_shortcode($atts)
       ),
     ),
   );
-
   $links = new WP_Query( $args );
-
+  
+  $output;
   if ($links->have_posts()) {
     while ($links->have_posts()) : $links->the_post();
     $output .= sprintf('<div class="panel-news_article">');

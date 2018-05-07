@@ -10,8 +10,9 @@
 .panel-news_article title {
     font-weight: bold;
 }
-.panel-news_article h2 {
+.panel-news_article .header {
   position:relative;
+  font-size:1.875rem;
 }
 .panel-news_article span {
   margin-right:15px;

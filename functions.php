@@ -8,12 +8,16 @@
   Author URI: http://petergraycreative.com
  */
 
-function add_stylesheet()
+function init_plugin_files()
 {
-  wp_enqueue_style('CSS', plugins_url('/style.css', __FILE__));
+  wp_register_style('CSS', plugins_url('/style.css', __FILE__));
+  wp_register_script( 'index', plugins_url('/index.js', __FILE__) , '', '', true );
+  wp_enqueue_style( 'CSS' );
+  wp_enqueue_script( 'index');
 }
 
-add_action('wp_enqueue_scripts', 'add_stylesheet');
+add_action('wp_enqueue_scripts', 'init_plugin_files');
+
 function is_new_item($postTime)
 {
   $time = round(abs(time() - $postTime) / 60 / 60);

@@ -19,7 +19,12 @@
 .panel-news_article .meta {
     color: rgb(118, 118, 118);
 }
-
+.display-block {
+  display:block;
+}
+.display-none {
+  display:none;
+}
 .panel-news_article .label.new {
   background-color: #00a256;
 }

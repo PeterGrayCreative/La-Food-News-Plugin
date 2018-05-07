@@ -27,7 +27,9 @@
   color:black;
 }
 .summary {
-  transition: all .5s ease-in-out;
+  opacity: 1;
+  max-height: 999px;
+  transition: opacity .5s, max-height .5s;
 }
 .summary p {
   margin-bottom:10px;

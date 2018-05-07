@@ -46,7 +46,7 @@ function news_link_shortcode($atts)
     $output .= sprintf('<div class="title"><a href="%s"><h2>%s<span class="label new">%s</span></h2></a></div>', get_field('article_link'), get_the_title(), ($isNewPost ? 'new' : ''));
     $output .= sprintf('<div class="meta"><span>%s</span>', get_field('news_outlet'));
     $output .= sprintf('<span>%s</span></div>', time_since_post(get_post_time('U', 'gmt', get_the_ID())));
-    $output .= sprintf('<a href="" class="summary-link">Summary</a><p>%s</p></div>', get_the_excerpt());
+    $output .= sprintf('<a href="" class="summary-link">Summary</a><p class="summary">%s</p></div>', strip_tags(the_excerpt()));
     endwhile;
   }
   wp_reset_postdata();

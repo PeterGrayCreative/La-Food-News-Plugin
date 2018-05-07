@@ -38,8 +38,9 @@ function time_since_post($postTime)
 function news_link_shortcode($atts)
 {
   // $a = shortcode_atts( $atts );
-  sprintf(esc_attr($atts['category']));
+
   $output;
+  $output = sprintf(esc_attr($atts['category']));
   $links = new WP_Query(array('post_type' => 'news_posts', 'category' => esc_attr($atts['category'])));
 
   if ($links->have_posts()) {

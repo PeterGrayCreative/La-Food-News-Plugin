@@ -51,6 +51,7 @@ function news_link_shortcode($atts)
     }
     $article_link = get_field('article_link');
     preg_match('/https?:\/\/[a-z]*[A-Z]*\.+.*/', get_field('article_link'), $rootLink);
+    print_r($rootLink);
     $btn = do_shortcode('[boombox_button url="' . $article_link . '" tag_type="a" size="small" type="primary"]' . 'Read Full Article' . '[/boombox_button]');
     $isNewPost = is_new_item(get_post_time('U', 'gmt', get_the_ID())) ? ' new-link' : '';
     $output .= sprintf('<div class="title"><a href="%s"><span class="news-title">%s<span class="label new">%s</span></span></a></div>', $article_link, get_the_title(), ($isNewPost ? 'new' : ''));

@@ -39,7 +39,19 @@ function news_link_shortcode($atts)
   // $a = shortcode_atts( $atts );
 
   $output;
-  $links = new WP_Query(array('post_type' => 'news_posts', array( 'category' => esc_attr($atts['category']))));
+
+  $args = array(
+    'post_type' => 'news_posts',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'category',
+        'field'    => 'slug',
+        'terms'    => array( esc_attr($atts['category']) ),
+      ),
+    ),
+  );
+
+  $links = new WP_Query( $args );
 
   if ($links->have_posts()) {
     while ($links->have_posts()) : $links->the_post();

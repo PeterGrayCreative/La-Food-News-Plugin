@@ -4,7 +4,7 @@ const excerpt = document.querySelectorAll('.panel-news_article');
   item.addEventListener(
     'click',
     function(event) {
-      if (event.target.classList.contains('summary-link')) {
+      if (event.target.classList.contains('news-title')) {
         event.preventDefault();
 
         const summary = item.querySelector('.summary');

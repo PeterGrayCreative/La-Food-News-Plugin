@@ -31,7 +31,12 @@ function time_since_post($postTime)
   elseif ($time / 60 / 60 < 24) {
     $formattedTime = round($time / 60 / 60);
     $formattedTime .= (round($time / 60 / 60) > 1 ? ' hrs' : ' hr');
-  } else $formattedTime = round($time / 60 / 60 / 24) . ' days';
+  } else {
+    $days = round($time / 60 / 60 / 24);
+    if ($days > 1) {
+    $formattedTime = $days .' days';
+    } else $formattedTime = $days .' day';
+  }
   return $formattedTime;
 }
 function news_link_shortcode($atts)

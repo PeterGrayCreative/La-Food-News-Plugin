@@ -61,9 +61,10 @@ function news_link_shortcode($atts)
     $article_link = get_field('article_link');
     try {
     preg_match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,8})*\//', $article_link, $rootLink);
+    echo $rootLink;
     $base_url = $rootLink[0];
     } catch (Exception $err) {
-      printf('Error, %s', $err->getMessage());
+      echo 'Error,', $err->getMessage(), '\n';
     }
     $btn = do_shortcode('[boombox_button url="' . $article_link . '" tag_type="a" size="small" type="primary"]' . 'Read Full Article' . '[/boombox_button]');
     $isNewPost = is_new_item(get_post_time('U', 'gmt', get_the_ID())) ? ' new-link' : '';

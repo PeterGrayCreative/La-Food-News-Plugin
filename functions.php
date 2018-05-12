@@ -61,7 +61,7 @@ function news_link_shortcode($atts)
     $article_link = get_field('article_link');
     try {
     preg_match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,8})*\//', $article_link, $rootLink);
-    echo $rootLink;
+    var_dump($rootLink);
     $base_url = $rootLink[0];
     } catch (Exception $err) {
       echo 'Error,', $err->getMessage(), '\n';

@@ -25,6 +25,7 @@ function is_new_item($postTime)
 }
 function time_since_post($postTime)
 {
+  // Possibly rewrite to switch statement later. This is a bit confusing to keep track of.
   $time = round(abs(time() - $postTime));
   if ($time < 60) $formattedTime = round($time / 60) . ' s';
   elseif ($time / 60 < 60) $formattedTime = round($time / 60) . ' min';

@@ -58,7 +58,7 @@
   background-color: #00a256;
 }
 
-.panel-news_article .label {
+.panel-news_article .label.new {
   position: absolute;
   z-index: 3;
   top: -10px;

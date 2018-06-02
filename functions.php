@@ -8,7 +8,7 @@
   Author URI: http://petergraycreative.com
  */
 
-function init_plugin_files()
+function init_plugin()
 {
   wp_register_style('CSS', plugins_url('/style.css', __FILE__));
   wp_register_script('index', plugins_url('/index.js', __FILE__), '', '', true);
@@ -16,7 +16,7 @@ function init_plugin_files()
   wp_enqueue_script('index');
 }
 
-add_action('wp_enqueue_scripts', 'init_plugin_files');
+add_action('wp_enqueue_scripts', 'init_plugin');
 
 function is_new_item($postTime)
 {

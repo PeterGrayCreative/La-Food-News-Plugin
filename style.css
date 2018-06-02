@@ -6,6 +6,9 @@
     padding: 15px 15px 15px 0;
     margin: 10px 0;
 }
+.panel-news_article:nth-child(odd) {
+  background-color: #f3f3f3;
+}
 
 .panel-news_article title {
     font-weight: bold;

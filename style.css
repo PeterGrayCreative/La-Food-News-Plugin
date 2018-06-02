@@ -7,7 +7,7 @@
     margin: 10px 0;
 }
 .panel-news_article:nth-child(odd) {
-  background-color: #f3f3f3;
+  background-color: rgb(247, 247, 247);
 }
 
 .panel-news_article title {

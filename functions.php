@@ -10,7 +10,7 @@
 
 function init_plugin()
 {
-  wp_register_style('CSS', plugins_url('/style.css', __FILE__));
+  wp_register_style('CSS', plugins_url('/style.css', __FILE__), null, null, null);
   wp_register_script('index', plugins_url('/index.js', __FILE__), '', '', true);
   wp_enqueue_style('CSS');
   wp_enqueue_script('index');

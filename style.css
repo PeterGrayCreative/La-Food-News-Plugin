@@ -23,7 +23,7 @@
   font-family: Montserrat, sans-serif;
   cursor: pointer;
 }
-.panel-news_article .news-title:hover {
+.panel-news_article .title:hover .news-title {
   text-decoration: underline
 }
 .panel-news_article span {

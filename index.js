@@ -7,7 +7,7 @@ var excerpt = document.querySelectorAll('.panel-news_article');
 
 [].concat(_toConsumableArray(excerpt)).map(function (item) {
   item.addEventListener('click', function (event) {
-    if (event.target.classList.contains('title-container') || event.target.classList.contains('news-container')) {
+    if (event.target.classList.contains('news-title')) {
       event.preventDefault();
 
       var summary = item.querySelector('.summary');

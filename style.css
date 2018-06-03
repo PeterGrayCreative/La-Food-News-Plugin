@@ -24,7 +24,7 @@
   cursor: pointer;
 }
 .panel-news_article .news-title:hover {
-  text-decoration: hover
+  text-decoration: underline
 }
 .panel-news_article span {
   margin-right:15px;

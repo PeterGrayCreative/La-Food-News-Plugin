@@ -35,6 +35,12 @@
     color: #bbbbbb;
     font-weight: bold;
 }
+.panel-news_article .meta a{
+  opacity:.6;
+}
+.panel-news_article .meta a:hover{
+  opacity:1;
+}
 .summary-link {
   color:#00a256;
   text-decoration: underline;

@@ -10,11 +10,11 @@
   background-color: rgb(247, 247, 247);
 }
 
-.panel-news_article title {
+.panel-news_article .title {
     font-weight: bold;
     margin-bottom:16px;
 }
-.panel-news_article title:hover {
+.panel-news_article .title:hover {
     text-decoration: hover
 }
 .panel-news_article .news-title {

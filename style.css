@@ -24,7 +24,7 @@
 }
 
 @media (max-width:767px) {
-  .page-id-2039 .bb-cards-view .bb-card-item {
+  .bb-cards-view #post-2039.bb-card-item {
     padding: 10px;
   }
 }

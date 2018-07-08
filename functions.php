@@ -66,6 +66,7 @@ function news_link_shortcode($atts)
       array(
         'public'       => true,
         'show_in_rest' => true,
+        'label'        => 'News',
         'taxonomy' => 'news_category',
         'field' => 'slug',
         'terms' => strtolower(esc_attr($atts['category'])),

@@ -64,12 +64,13 @@ function news_link_shortcode($atts)
     'post_type' => 'news_posts',
     'tax_query' => array(
       array(
-        'public'       => true,
-        'show_in_rest' => true,
         'label'        => 'News',
         'taxonomy' => 'news_category',
         'field' => 'slug',
         'terms' => strtolower(esc_attr($atts['category'])),
+        'public'       => true,
+        'show_in_rest' => true,
+        'rest_controller_class' => 'WP_REST_Posts_Controller',
       ),
     ),
   );

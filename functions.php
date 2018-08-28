@@ -64,11 +64,11 @@ function news_link_shortcode($atts)
     'post_type' => 'news_posts',
     'tax_query' => array(
       array(
-        'label'        => 'News',
+        'label' => 'News',
         'taxonomy' => 'news_category',
         'field' => 'slug',
         'terms' => strtolower(esc_attr($atts['category'])),
-        'public'       => true,
+        'public' => true,
         'show_in_rest' => true,
         'rest_controller_class' => 'WP_REST_Posts_Controller',
       ),
@@ -99,9 +99,9 @@ function news_link_shortcode($atts)
   return $output;
 }
 add_shortcode('news-links', 'news_link_shortcode');
-add_filter( 'news_posts', 'news_rewrite' ); // Here replace "your-post-type" with the actual post type, e.g., "cherry_services", "cherry-projects" 
-            function news_rewrite( $args ) { 
-            $args['rewrite']['slug'] = 'news'; // Replace "our-services" with your preferable slug 
-            return $args; 
-        } 
+function news_rewrite($args) {
+  $args['rewrite']['slug'] = 'news'; // Replace "our-services" with your preferable slug 
+  return $args;
+}
+add_filter('news_posts', 'news_rewrite'); // Here replace "your-post-type" with the actual post type, e.g., "cherry_services", "cherry-projects" 
 ?>

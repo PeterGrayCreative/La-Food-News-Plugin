@@ -99,4 +99,10 @@ function news_link_shortcode($atts)
   return $output;
 }
 add_shortcode('news-links', 'news_link_shortcode');
+add_filter( 'news_posts', 'news' ); // Here replace "your-post-type" with the actual post type, e.g., "cherry_services", "cherry-projects"
+            function _my_rewrite_slug( $args ) {
+            $args['rewrite']['slug'] = 'news'; // Replace "our-services" with your preferable slug
+            return $args;
+        }
+
 ?>

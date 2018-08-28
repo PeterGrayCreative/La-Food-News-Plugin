@@ -75,6 +75,7 @@ function news_link_shortcode($atts)
     ),
   );
   $links = new WP_Query($args);
+  echo $links;
   $output = '';
   if ($links->have_posts()) {
     while ($links->have_posts()) : $links->the_post();

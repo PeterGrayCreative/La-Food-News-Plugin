@@ -61,7 +61,7 @@ function time_since_post($postTime)
 function news_link_shortcode($atts)
 {
   $args = array(
-    'post_type' => 'news_posts',
+    'post_type' => 'news',
     'tax_query' => array(
       array(
         'label'        => 'News',

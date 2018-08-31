@@ -116,7 +116,7 @@ function create_news_cat_taxonomies()
     'menu_name' => __( 'News Cats' ),
   ); 
 
-  register_taxonomy('news_category','news_posts',array(
+  register_taxonomy('news_category','news',array(
     'hierarchical' => false,
     'labels' => $labels,
     'show_ui' => true,

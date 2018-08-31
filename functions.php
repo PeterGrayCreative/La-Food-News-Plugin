@@ -192,7 +192,6 @@ function news_link_shortcode($atts)
       ),
     ),
   );
-  var_dump($args);
   $links = new WP_Query($args);
   $output = '';
   if ($links->have_posts()) {

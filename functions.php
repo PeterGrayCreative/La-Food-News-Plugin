@@ -182,16 +182,16 @@ function news_link_shortcode($atts)
   var_dump('atts', $atts);
   $args = array(
     'post_type' => 'news',
-    'tax_query' => array(
-      array(
-        'label' => 'News',
-        'taxonomy' => 'news_category',
-        'field' => 'slug',
-        'terms' => strtolower(esc_attr($atts['category'])),
-        'public' => true,
-        'show_in_rest' => true,
-        'rest_controller_class' => 'WP_REST_Posts_Controller',
-      )
+    // 'tax_query' => array(
+    //   array(
+    //     'label' => 'News',
+    //     'taxonomy' => 'news_category',
+    //     'field' => 'slug',
+    //     'terms' => strtolower(esc_attr($atts['category'])),
+    //     'public' => true,
+    //     'show_in_rest' => true,
+    //     'rest_controller_class' => 'WP_REST_Posts_Controller',
+    //   )
     )
   );
   var_dump('args',$args);

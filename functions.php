@@ -1,11 +1,11 @@
 <?php
 /*
-  Plugin Name: LA Food News Links
-  Plugin URI: www.petergraycreative.com
-  Description: Displays Syndicated News Links added by Admins
-  Version: 1.0
-  Author: Peter Gray
-  Author URI: http://petergraycreative.com
+ Plugin Name: LA Food News Links
+ Plugin URI: www.petergraycreative.com
+ Description: Displays Syndicated News Links added by Admins
+ Version: 1.0
+ Author: Peter Gray
+ Author URI: http://petergraycreative.com
  */
 // Register Custom Post Type for News Links
 function custom_news_post_type()
@@ -141,17 +141,17 @@ add_action('wp_enqueue_scripts', 'init_plugin');
 function fix_widows($title)
 {
 
-	// Strip spaces.
+ // Strip spaces.
   $title = trim($title);
-	// Find the last space.
+ // Find the last space.
   $space = strrpos($title, ' ');
 
-	// If there's a space then replace the last on with a non breaking space.
+ // If there's a space then replace the last on with a non breaking space.
   if (false !== $space) {
     $str = substr($title, 0, $space) . '&nbsp;' . substr($title, $space + 1);
   }
 
-	// Return the string.
+ // Return the string.
   return $str;
 
 }
@@ -162,7 +162,7 @@ function is_new_item($postTime)
 }
 function time_since_post($postTime)
 {
-  // Possibly rewrite to switch statement later. This is a bit confusing to keep track of.
+ // Possibly rewrite to switch statement later. This is a bit confusing to keep track of.
   $time = round(abs(time() - $postTime));
   if ($time < 60) $formattedTime = round($time / 60) . ' s';
   elseif ($time / 60 < 60) $formattedTime = round($time / 60) . ' min';
@@ -182,19 +182,19 @@ function news_link_shortcode($atts)
   var_dump('atts', $atts);
   $args = array(
     'post_type' => 'news',
-    // 'tax_query' => array(
-    //   array(
-    //     'label' => 'News',
-    //     'taxonomy' => 'news_category',
-    //     'field' => 'slug',
-    //     'terms' => strtolower(esc_attr($atts['category'])),
-    //     'public' => true,
-    //     'show_in_rest' => true,
-    //     'rest_controller_class' => 'WP_REST_Posts_Controller',
-    //   )
-    // )
+    'tax_query' => array(
+      array(
+        'label' => 'News',
+        'taxonomy' => 'news_category',
+        'field' => 'slug',
+        'terms' => strtolower(esc_attr($atts['category'])),
+        'public' => true,
+        'show_in_rest' => true,
+        'rest_controller_class' => 'WP_REST_Posts_Controller',
+      )
+    )
   );
-  var_dump('args',$args);
+  var_dump('args', $args);
   $links = new WP_Query($args);
   var_dump('query', $links);
   $output = '';

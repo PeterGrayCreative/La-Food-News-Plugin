@@ -192,7 +192,7 @@ function news_link_shortcode($atts)
     //     'show_in_rest' => true,
     //     'rest_controller_class' => 'WP_REST_Posts_Controller',
     //   )
-    )
+    // )
   );
   var_dump('args',$args);
   $links = new WP_Query($args);

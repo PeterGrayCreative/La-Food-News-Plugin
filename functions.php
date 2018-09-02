@@ -179,7 +179,6 @@ function time_since_post($postTime)
 }
 function news_link_shortcode($atts)
 {
-  var_dump('atts', $atts);
   $args = array(
     'post_type' => 'news',
     'tax_query' => array(
@@ -194,9 +193,7 @@ function news_link_shortcode($atts)
       )
     )
   );
-  var_dump('args', $args);
   $links = new WP_Query($args);
-  var_dump('query', $links);
   $output = '';
   if ($links->have_posts()) {
     while ($links->have_posts()) : $links->the_post();

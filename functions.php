@@ -83,11 +83,11 @@ function news_link_shortcode($atts)
       $output .= sprintf('<div class="news-featured"><a href="%s">%s</a></div>', the_permalink(), the_post_thumbnail());
     }
     $article_link = get_field('article_link');
-    echo $article_link;
+
     preg_match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,8})*\/*[^\/]/', $article_link, $rootLink);
     $base_url = $rootLink[0];
 
-    $btn = do_shortcode('[boombox_button url="' . $article_link . '" tag_type="a" size="small" type="primary"]' . 'Read Full Article' . '[/boombox_button]');
+    $btn = '<a class="bb-btn bb-btn-primary bb-btn-sm" href="$article_link">Read Full Article</a>');
     $isNewPost = is_new_item(get_post_time('U', 'gmt', get_the_ID())) ? ' new-link' : '';
     $output .= sprintf('<span class="news-title">%s<span class="label %s">%s</span></span>', fix_widows(get_the_title()), ($isNewPost ? 'new' : ''), ($isNewPost ? 'new' : ''));
     $output .= sprintf('<div class="summary display-none"><p>%s</p>%s</div>', strip_tags(get_the_excerpt()), $btn);

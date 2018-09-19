@@ -87,7 +87,7 @@ function news_link_shortcode($atts)
     preg_match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,8})*\/*[^\/]/', $article_link, $rootLink);
     $base_url = $rootLink[0];
 
-    $btn = '<a class="bb-btn bb-btn-primary bb-btn-sm" href="$article_link">Read Full Article</a>');
+    $btn = '<a class="bb-btn bb-btn-primary bb-btn-sm" href="$article_link">Read Full Article</a>';
     $isNewPost = is_new_item(get_post_time('U', 'gmt', get_the_ID())) ? ' new-link' : '';
     $output .= sprintf('<span class="news-title">%s<span class="label %s">%s</span></span>', fix_widows(get_the_title()), ($isNewPost ? 'new' : ''), ($isNewPost ? 'new' : ''));
     $output .= sprintf('<div class="summary display-none"><p>%s</p>%s</div>', strip_tags(get_the_excerpt()), $btn);

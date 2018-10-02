@@ -83,7 +83,7 @@ function news_link_shortcode($atts)
       $output .= sprintf('<div class="news-featured"><a href="%s">%s</a></div>', the_permalink(), the_post_thumbnail());
     }
     $article_link = get_field('article_link');
-    echo $article_link;
+    
     preg_match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,8})*\/*/', $article_link, $rootLink);
     $base_url = $rootLink[0];
 
